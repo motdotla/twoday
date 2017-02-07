@@ -1,0 +1,16 @@
+<%= form_for @device, method: :put do |f| -%>
+
+  <p>
+    <%= f.label :name %>
+    <br/>
+    <%= f.text_field :name %>
+  </p>
+
+  <p>
+    <%= f.label :ip_address %>
+    <br/>
+    <%= f.text_field :ip_address %>
+  </p>
+
+  <%= f.submit %>
+<% end %>
