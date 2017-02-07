@@ -1,4 +1,6 @@
 class Device < ActiveRecord::Base
+  store_accessor :control_values
+
   belongs_to :device_type
 
   validates :name, presence: true
