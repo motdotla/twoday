@@ -20,6 +20,6 @@ class DevicesController < ApplicationController
   private
 
   def device_params
-    params.require(:device).permit(:name, :ip_address)
+    params.require(:device).permit!
   end
 end

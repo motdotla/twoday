@@ -12,5 +12,13 @@
     <%= f.text_field :ip_address %>
   </p>
 
+  <% @device.device_type.controls.each do |control| %>
+    <p>
+      <%= f.label control.name %>
+      <br/>
+      <%= f.text_field "control_#{control.id}" %>
+    </p>
+  <% end %>
+
   <%= f.submit %>
 <% end %>
