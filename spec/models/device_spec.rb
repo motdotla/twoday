@@ -15,4 +15,10 @@ RSpec.describe Device, type: :model do
     expect(device).to_not be_valid
   end
 
+  it 'requires ip_address' do
+    device.ip_address = nil
+
+    expect(device).to_not be_valid
+  end
+
 end

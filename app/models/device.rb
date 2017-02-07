@@ -3,4 +3,5 @@ class Device < ActiveRecord::Base
 
   validates :name, presence: true
   validates :device_type, presence: true
+  validates :ip_address, presence: true
 end
