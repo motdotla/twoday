@@ -9,12 +9,6 @@ RSpec.describe Control, type: :model do
     expect(control).to_not be_valid
   end
 
-  it 'requires device_type' do
-    control.device_type = nil
-
-    expect(control).to_not be_valid
-  end
-
   describe '#control_type' do
     it 'is required' do
       control.control_type = ''

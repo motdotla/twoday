@@ -5,6 +5,7 @@ ActiveAdmin.register Device do
 
   form do |f|
     f.inputs do
+      f.input :device_type
       f.input :name
       f.input :ip_address
       f.input :control_values, as: :text
