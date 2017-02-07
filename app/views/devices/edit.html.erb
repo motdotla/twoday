@@ -1,24 +1,21 @@
-<%= form_for @device, method: :put do |f| -%>
+<div data-role="header">
+  <%= link_to 'back', devices_path, class: 'ui-btn-left ui-btn ui-btn-inline ui-mini ui-corner-all' %>
+  <h1><%= @device.name %></h1>
+</div>
 
-  <p>
+<div role="main" class="ui-content">
+  <%= form_for @device, method: :put, html: { class: '' } do |f| -%>
     <%= f.label :name %>
-    <br/>
     <%= f.text_field :name %>
-  </p>
 
-  <p>
     <%= f.label :ip_address %>
-    <br/>
     <%= f.text_field :ip_address %>
-  </p>
 
-  <% @device.device_type.controls.each do |control| %>
-    <p>
+    <% @device.device_type.controls.each do |control| %>
       <%= f.label control.name %>
-      <br/>
-      <%= f.text_field "control_#{control.id}" %>
-    </p>
-  <% end %>
+      <%= control_field(f, control) %>
+    <% end %>
 
-  <%= f.submit %>
-<% end %>
+    <%= f.submit %>
+  <% end %>
+</div>

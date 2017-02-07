@@ -1,9 +1,22 @@
-<h2>Devices</h2>
+<div data-role="header">
+  <h1>Devices</h1>
+</div>
 
-<ul>
-  <% @devices.each do |device| %>
-    <li>
-      <%= link_to "#{device.name} #{device.ip_address}", edit_device_path(device) %>
-    </li>
-  <% end %>
-</ul>
+<div role="main" class="ui-content">
+  <ul data-role="listview">
+    <% @devices.each do |device| %>
+      <li>
+        <%= link_to edit_device_path(device) do %>
+          <img src="http://placehold.it/160x160">
+          <h2>
+            <%= device.name %>
+          </h2>
+          <p>
+            <%= device.device_type.name %>
+            <%= device.ip_address %>
+          </p>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+</div>
