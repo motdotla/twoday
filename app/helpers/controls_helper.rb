@@ -6,7 +6,7 @@ module ControlsHelper
     when 'slider'
       f.range_field field_name, min: 0, max: 100
     when 'select'
-      f.select field_name, ['one', 'two']
+      f.select field_name, control.options
     when 'button'
       f.button "IMPLEMENT"
     else

@@ -13,6 +13,7 @@ ActiveAdmin.register DeviceType do
       has_many :controls, heading: false, new_record: 'New Control' do |control|
         control.input :name, label: 'Control Name'
         control.input :control_type, label: 'Control Type', as: :select, collection: Control::AVAILABLE_CONTROL_TYPES
+        control.input :select_options, label: 'Select Options'
       end
     end
 

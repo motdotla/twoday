@@ -4,5 +4,6 @@ FactoryGirl.define do
 
     name 'Volume'
     control_type 'slider'
+    select_options 'Britney Spears, G-Eazy'
   end
 end
