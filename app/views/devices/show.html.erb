@@ -28,9 +28,6 @@ $(function() {
   })
 
   $('.select-control').on('change', function(event, ui) {
-    event.stopImmediatePropagation()
-    event.preventDefault()
-
     setControl(this)
   })
 
