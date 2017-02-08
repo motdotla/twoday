@@ -18,15 +18,18 @@ class DeviceSetControl
       device.save
       Success.new(device)
     else
-      Error.new('Device expierenced a problem. Please try again.')
+      Error.new("Device expierenced a problem. Please try again. Status: #{make_request.status}")
     end
   end
 
   private
 
   def call_action_if_it_exists
-    response = Faraday.send(action_verb, action_url)
-    response.success?
+    make_request.success?
+  end
+
+  def make_request
+    @make_request ||= Faraday.send(action_verb, action_url)
   end
 
   def action_verb
