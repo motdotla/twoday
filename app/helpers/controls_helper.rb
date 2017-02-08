@@ -8,8 +8,7 @@ module ControlsHelper
     when 'select'
       f.select field_name, control.options, {}, { class: 'select-control' }
     when 'button'
-      link_to control.name, '/', class: 'ui-btn button-control', id: "device_control_#{control.id}", rel: 'external'
-      # f.button control.name, class: 'button-control', id: "device_control_#{control.id}", type: nil
+      link_to control.name, '#', class: 'ui-btn button-control', id: "device_control_#{control.id}", rel: 'external'
     else
     end
   end
