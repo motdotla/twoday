@@ -20,7 +20,8 @@ task load_dev_data: :environment do
         },
         {
           name: 'Playlist',
-          control_type: 'select'
+          control_type: 'select',
+          select_options: 'Britney Spears, G-Eazy, Bob Dylan, John Elton'
         }
       ]
     )
@@ -41,7 +42,8 @@ task load_dev_data: :environment do
         },
         {
           name: 'Playlist',
-          control_type: 'select'
+          control_type: 'select',
+          select_options: 'Britney Spears, G-Eazy, Bob Dylan, John Elton'
         }
       ]
     )
