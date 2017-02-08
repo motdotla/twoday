@@ -8,7 +8,7 @@ module ControlsHelper
     when 'select'
       f.select field_name, control.options, {}, { class: 'select-control' }
     when 'button'
-      f.button control.name, class: 'button-control'
+      f.button control.name, class: 'button-control', id: "device_control_#{control.id}"
     else
     end
   end

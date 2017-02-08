@@ -7,7 +7,7 @@ class ApiController < ApplicationController
 
     @device.send("#{field}=", value)
 
-    if field.present? && value.present? && @device.save
+    if field.present? && @device.save
       render json: { success: true }
     else
       render json: { success: false }, status: 400

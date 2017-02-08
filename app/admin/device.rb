@@ -8,7 +8,6 @@ ActiveAdmin.register Device do
       f.input :device_type
       f.input :name
       f.input :ip_address
-      f.input :control_values, as: :text
     end
 
     f.actions

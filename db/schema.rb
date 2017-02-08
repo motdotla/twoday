@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170207222750) do
+ActiveRecord::Schema.define(version: 20170208010800) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,6 +56,8 @@ ActiveRecord::Schema.define(version: 20170207222750) do
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
     t.string   "select_options"
+    t.string   "action_verb"
+    t.text     "action_url"
   end
 
   add_index "controls", ["device_type_id"], name: "index_controls_on_device_type_id", using: :btree

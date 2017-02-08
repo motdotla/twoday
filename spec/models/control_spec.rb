@@ -43,4 +43,19 @@ RSpec.describe Control, type: :model do
     end
   end
   
+  describe '#action_verb' do
+    it 'must be in the list of valid verbs' do
+      control.action_verb = 'YO'
+
+      expect(control).to_not be_valid
+    end
+  end
+
+  describe '#action_url' do
+    it 'must be a valid url' do
+      control.action_url = 'not url'
+    
+      expect(control).to_not be_valid
+    end
+  end
 end
