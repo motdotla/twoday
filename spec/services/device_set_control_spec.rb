@@ -9,7 +9,7 @@ RSpec.describe DeviceSetControl do
   let(:service) { DeviceSetControl.new(device, field_name, 24) }
 
   before do
-    allow(service).to receive(:call_action_if_it_exists).and_return(true)
+    allow(service).to receive(:make_request).and_return(OpenStruct.new(success?: true))
   end
 
   describe '#run' do
@@ -29,7 +29,7 @@ RSpec.describe DeviceSetControl do
 
     context 'when the device ping fails' do
       it 'raises an error' do
-        allow(service).to receive(:call_action_if_it_exists).and_return(false)
+        allow(service).to receive(:make_request).and_return(OpenStruct.new(success?: false, status: 500))
 
         expect(service.run).to_not be_success
       end

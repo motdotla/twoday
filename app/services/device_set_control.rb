@@ -14,7 +14,10 @@ class DeviceSetControl
   def run
     device.send("#{field}=", value)
 
-    if call_action_if_it_exists
+    if should_make_request? && make_request.success?
+      device.save
+      Success.new(device)
+    elsif !should_make_request?
       device.save
       Success.new(device)
     else
@@ -24,16 +27,16 @@ class DeviceSetControl
 
   private
 
-  def call_action_if_it_exists
-    make_request.success? if action_verb.present? && action_url.present?
-  end
-
   def make_request
     @make_request ||= Faraday.send(action_verb, action_url)
   end
 
+  def should_make_request?
+    action_verb.present? && action_url.present?
+  end
+
   def action_verb
-    control.action_verb.downcase
+    control.action_verb.try(:downcase)
   end
 
   def action_url

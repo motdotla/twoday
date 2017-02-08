@@ -55,5 +55,13 @@ $(function() {
       alert(resp.responseJSON.error)
     })
   }
+
+  // crufty
+  $('form').submit(function(e) { 
+    e.preventDefault()
+    return false
+  })
+
+
 })
 
