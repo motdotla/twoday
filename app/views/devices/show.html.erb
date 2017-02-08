@@ -6,7 +6,7 @@
 <div role="main" class="ui-content">
   <small><%= @device.ip_address %></small>
 
-  <%= form_for @device, method: :put, html: { class: '', 'data-ajax' => 'false' } do |f| -%>
+  <%= form_for @device, method: :put, html: { class: '' } do |f| -%>
     <%= hidden_field_tag 'device_id', @device.id %>
 
     <% @device.device_type.controls.each do |control| %>
