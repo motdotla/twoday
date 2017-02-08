@@ -25,7 +25,7 @@ class DeviceSetControl
   private
 
   def call_action_if_it_exists
-    make_request.success?
+    make_request.success? if action_verb.present? && action_url.present?
   end
 
   def make_request
