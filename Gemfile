@@ -33,6 +33,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # gem 'capistrano-rails', group: :development
 
 gem 'devise'
+gem 'faraday'
 gem 'activeadmin', '~> 1.0.0.pre4'
 gem 'jquery_mobile_rails'
 

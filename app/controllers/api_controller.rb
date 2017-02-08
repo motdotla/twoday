@@ -2,15 +2,14 @@ class ApiController < ApplicationController
   def device_set_control
     @device = Device.find(params[:id])
 
-    field = params[:field]
-    value = params[:value]
+    service = DeviceSetControl.new(@device, params[:field], params[:value])
 
-    @device.send("#{field}=", value)
+    result = service.run
 
-    if field.present? && @device.save
+    if result.success?
       render json: { success: true }
     else
-      render json: { success: false }, status: 400
+      render json: { success: false, error: result.error }, status: 400
     end
   end
 end
