@@ -4,11 +4,12 @@ module ControlsHelper
 
     case control.control_type
     when 'slider'
-      f.range_field field_name, min: 0, max: 100, class: 'slider-control'
+      f.text_field field_name, min: 0, max: 100, class: 'slider-control', 'data-type' => 'range'
     when 'select'
       f.select field_name, control.options, {}, { class: 'select-control' }
     when 'button'
-      f.button control.name, class: 'button-control', id: "device_control_#{control.id}"
+      link_to control.name, '/', class: 'ui-btn button-control', id: "device_control_#{control.id}", rel: 'external'
+      # f.button control.name, class: 'button-control', id: "device_control_#{control.id}", type: nil
     else
     end
   end

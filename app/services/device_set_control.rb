@@ -21,7 +21,7 @@ class DeviceSetControl
       device.save
       Success.new(device)
     else
-      Error.new("Device expierenced a problem. Please try again. Status: #{make_request.status}")
+      Error.new("Device expierenced a problem. Please try again. Device status was: #{make_request.status}")
     end
   end
 
