@@ -1,0 +1,18 @@
+<div data-role="header">
+  <%= link_to 'back', devices_path, class: 'ui-btn-left ui-btn ui-btn-inline ui-mini ui-corner-all' %>
+  <h1><%= @device.name %></h1>
+</div>
+
+<div role="main" class="ui-content">
+  <small><%= @device.ip_address %></small>
+
+  <%= form_for @device, method: :put, html: { class: '' } do |f| -%>
+    <%= hidden_field_tag 'device_id', @device.id %>
+
+    <% @device.device_type.controls.each do |control| %>
+      <%= f.label control.name %>
+      <%= control_field(f, control) %>
+    <% end %>
+  <% end %>
+</div>
+

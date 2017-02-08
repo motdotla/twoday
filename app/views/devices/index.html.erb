@@ -6,7 +6,7 @@
   <ul data-role="listview">
     <% @devices.each do |device| %>
       <li>
-        <%= link_to edit_device_path(device) do %>
+        <%= link_to device_path(device) do %>
           <img src="http://placehold.it/160x160">
           <h2>
             <%= device.name %>

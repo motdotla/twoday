@@ -14,4 +14,39 @@
 //= require jquery_ujs
 //= require jquery.mobile
 
+$(function() {
+  $('.slider-control').on('slidestop', function(event, ui) { 
+    event.preventDefault()
+
+    setControl(this)
+  })
+
+  $('.select-control').on('change', function(event, ui) {
+    event.preventDefault()
+
+    setControl(this)
+  })
+
+  $('.button-control').on('click', function(event, ui) {
+    event.preventDefault()
+
+    setControl(this)
+  })
+
+  function setControl(self) {
+    var device_id = $('#device_id').val()
+    var field = $(self).attr('id').replace('device_', '') // get the field name - like control_19
+    var value = $(self).val()
+
+    var data = { field: field, value: value }
+
+    $.ajax({
+      method: 'POST',
+      url: '/api/v0/devices/' + device_id + '/set_control',
+      data: data
+    }).done(function() {
+    })
+    // handle error here
+  }
+})
 

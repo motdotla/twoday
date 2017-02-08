@@ -8,7 +8,9 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'devices#index'
 
-  resources :devices, only: [:index, :edit, :update]
+  match 'api/v0/devices/:id/set_control' => 'api#device_set_control', via: [:get, :post]
+
+  resources :devices, only: [:index, :edit, :update, :show]
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

@@ -3,6 +3,10 @@ class DevicesController < ApplicationController
     @devices = Device.all
   end
 
+  def show
+    @device = Device.find(params[:id])
+  end
+
   def edit
     @device = Device.find(params[:id])
   end

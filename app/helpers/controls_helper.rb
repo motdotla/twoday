@@ -4,11 +4,11 @@ module ControlsHelper
 
     case control.control_type
     when 'slider'
-      f.range_field field_name, min: 0, max: 100
+      f.range_field field_name, min: 0, max: 100, class: 'slider-control'
     when 'select'
-      f.select field_name, control.options
+      f.select field_name, control.options, {}, { class: 'select-control' }
     when 'button'
-      f.button "IMPLEMENT"
+      f.button control.name, class: 'button-control'
     else
     end
   end
